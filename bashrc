@@ -250,4 +250,6 @@ export MANPATH=/usr/local/git/man:$MANPATH
 
 export CDPATH=".:~:~/webdev:~/Desktop:~/Desktop/Imports"
 
+export CLICOLOR="1"
+
 if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
