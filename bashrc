@@ -73,7 +73,7 @@ export HISTCONTROL="ignoredups"
 
 # Ignore some controlling instructions
 # export HISTIGNORE="[   ]*:&:bg:fg:exit"
-export HISTIGNORE="&:ls:[bf]g:exit"
+export HISTIGNORE="&:ls:[bf]g:exit:gst:gl:gp:gitx"
 
 # Whenever displaying the prompt, write the previous line to disk
 # export PROMPT_COMMAND="history -a"
