@@ -117,10 +117,38 @@ alias ....='cd .. && cd .. && cd ..'
 alias .....='cd .. && cd .. && cd .. && cd ..'
 
 # Rails aliases
-alias sc='./script/console'
-alias sr='./script/runner'
-alias ss='./script/server'
-alias sg='./script/generate'
+# alias sc='./script/console'
+function sc {
+	if [ -f './script/rails' ]; then
+		./script/rails console $*
+	else
+		./script/console $*
+	fi
+}
+# alias sr='./script/runner'
+function sr {
+	if [ -f './script/rails' ]; then
+		./script/rails runner $*
+	else
+		./script/runner $*
+	fi
+}
+# alias ss='./script/server'
+function ss {
+	if [ -f './script/rails' ]; then
+		./script/rails server $*
+	else
+		./script/server $*
+	fi
+}
+# alias sg='./script/generate'
+function sg {
+	if [ -f './script/rails' ]; then
+		./script/rails generate $*
+	else
+		./script/generate $*
+	fi
+}
 alias tfd='tail -f log/development.log'
 alias tfp='tail -f log/production.log'
 alias atr='autotest -rails'
