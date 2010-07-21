@@ -154,6 +154,8 @@ alias tfp='tail -f log/production.log'
 alias atr='autotest -rails'
 alias rdm='rake db:migrate'
 
+alias b='bundle'
+
 # Aliases for git
 alias gl='git pull'
 alias gp='git push'
