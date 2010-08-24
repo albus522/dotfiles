@@ -137,8 +137,10 @@ function sr {
 function ss {
 	if [ -f './script/rails' ]; then
 		./script/rails server $*
-	else
+	elif [ -f './script/server' ]; then
 		./script/server $*
+	else
+	  ruby -r webrick -e "trap('INT')  { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
 	fi
 }
 # alias sg='./script/generate'
