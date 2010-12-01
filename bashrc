@@ -234,30 +234,48 @@ function sshc {
   if [ "admin" == "$1" ]
   then
     ssh xspond@admin.xspond.com
+  elif [ "autodata1" == "$1" ]
+  then
+    ssh xspond@autodata1.xspond.com
   elif [ "client1" == "$1" ]
   then
-    ssh xspond@client1.xspond.com
-  elif [ "dev" == "$1" ]
-  then
-    ssh xspond@dev.xspond.com
-  elif [ "mail" == "$1" ]
-  then
-    ssh zimbra@mail.xspond.com
-  elif [ "xmp1" == "$1" ]
-  then
-    ssh xspond@xmp1.xspond.com
-  elif [ "p1" == "$1" ]
-  then
-    ssh xspond@production1.xspond.com
-  elif [ "hn1" == "$1" ]
-  then
-    ssh david@hn1.xspond.com
+    ssh xspond@207.32.178.195
   elif [ "data" == "$1" ]
   then
     ssh Administrator@10.10.10.5
+  elif [ "dev" == "$1" ]
+  then
+    ssh xspond@dev.xspond.com
+  elif [ "facebook1" == "$1" ]
+  then
+    ssh xspond@facebook1.xspond.com
+  elif [ "hn1" == "$1" ]
+  then
+    ssh david@hn1.xspond.com
+  elif [ "keymaster" == "$1" ]
+  then
+    ssh keymaster@keymaster.xspond.com
+  elif [ "legacy1" == "$1" ]
+  then
+    ssh xspond@legacy1.xspond.com
+  elif [ "mail" == "$1" ]
+  then
+    ssh zimbra@mail.xspond.com
+  elif [ "media1" == "$1" ]
+  then
+    ssh xspond@media.xspond.com
+  elif [ "p1" == "$1" ]
+  then
+    ssh xspond@production1.xspond.com
+  elif [ "php1" == "$1" ]
+  then
+    ssh xspond@php1.xspond.com
+  elif [ "xmp1" == "$1" ]
+  then
+    ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'admin client1 dev mail xmp1 p1 hn1 data' $default sshc
+complete -W 'admin autodata1 client1 data dev facebook1 hn1 keymaster legacy1 mail media1 p1 php1 xmp1' $default sshc
 
 
 # Functions
