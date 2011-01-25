@@ -155,6 +155,7 @@ alias tfd='tail -f log/development.log'
 alias tfp='tail -f log/production.log'
 alias atr='autotest -rails'
 alias rdm='rake db:migrate'
+alias rr='rake routes'
 
 alias b='bundle'
 
