@@ -232,10 +232,7 @@ complete -F _gem_doc_list gemdoc
 
 
 function sshc {
-  if [ "admin" == "$1" ]
-  then
-    ssh xspond@admin.xspond.com
-  elif [ "autodata1" == "$1" ]
+  if [ "autodata1" == "$1" ]
   then
     ssh xspond@autodata1.xspond.com
   elif [ "client1" == "$1" ]
@@ -250,18 +247,15 @@ function sshc {
   elif [ "facebook1" == "$1" ]
   then
     ssh xspond@facebook1.xspond.com
-  elif [ "hn1" == "$1" ]
+  elif [ "git" == "$1" ]
   then
-    ssh david@hn1.xspond.com
+    ssh xspond@git.xspond.com
   elif [ "keymaster" == "$1" ]
   then
     ssh keymaster@keymaster.xspond.com
   elif [ "legacy1" == "$1" ]
   then
     ssh xspond@legacy1.xspond.com
-  elif [ "mail" == "$1" ]
-  then
-    ssh zimbra@mail.xspond.com
   elif [ "media1" == "$1" ]
   then
     ssh xspond@media.xspond.com
@@ -271,12 +265,18 @@ function sshc {
   elif [ "php1" == "$1" ]
   then
     ssh xspond@php1.xspond.com
+  elif [ "staging_autodata" == "$1" ]
+  then
+    ssh xspond@10.10.10.21
+  elif [ "staging_xmp1" == "$1" ]
+  then
+    ssh xspond@10.10.10.23
   elif [ "xmp1" == "$1" ]
   then
     ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'admin autodata1 client1 data dev facebook1 hn1 keymaster legacy1 mail media1 p1 php1 xmp1' $default sshc
+complete -W 'autodata1 client1 data dev facebook1 git keymaster legacy1 media1 p1 php1 staging_autodata staging_xmp1 xmp1' $default sshc
 
 
 # Functions
