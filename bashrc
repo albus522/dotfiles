@@ -268,6 +268,9 @@ function sshc {
   elif [ "staging_autodata" == "$1" ]
   then
     ssh xspond@10.10.10.21
+  elif [ "staging_media" == "$1" ]
+  then
+    ssh xspond@media.xspond.local
   elif [ "staging_xmp1" == "$1" ]
   then
     ssh xspond@10.10.10.23
@@ -276,7 +279,7 @@ function sshc {
     ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'autodata1 client1 data dev facebook1 git keymaster legacy1 media1 p1 php1 staging_autodata staging_xmp1 xmp1' $default sshc
+complete -W 'autodata1 client1 data dev facebook1 git keymaster legacy1 media1 p1 php1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
 
 
 # Functions
