@@ -116,6 +116,8 @@ alias ...='cd .. && cd ..'
 alias ....='cd .. && cd .. && cd ..'
 alias .....='cd .. && cd .. && cd .. && cd ..'
 
+alias m='mate .'
+
 # Rails aliases
 # alias sc='./script/console'
 function sc {
