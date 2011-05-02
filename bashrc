@@ -238,7 +238,10 @@ complete -F _gem_doc_list gemdoc
 
 
 function sshc {
-  if [ "autodata1" == "$1" ]
+  if [ "api1" == "$1" ]
+  then
+    ssh -A -t xspond@10.10.10.168 'ssh xspond@10.10.11.11'
+  elif [ "autodata1" == "$1" ]
   then
     ssh xspond@autodata1.xspond.com
   elif [ "client1" == "$1" ]
@@ -247,6 +250,9 @@ function sshc {
   elif [ "data" == "$1" ]
   then
     ssh Administrator@10.10.10.5
+  elif [ "db1" == "$1" ]
+  then
+    ssh -A -t xspond@10.10.10.168 'ssh xspond@10.10.11.10'
   elif [ "dev" == "$1" ]
   then
     ssh xspond@dev.xspond.com
@@ -271,6 +277,9 @@ function sshc {
   elif [ "php1" == "$1" ]
   then
     ssh xspond@php1.xspond.com
+  elif [ "proxy1" == "$1" ]
+  then
+    ssh xspond@10.10.10.168
   elif [ "staging_autodata" == "$1" ]
   then
     ssh xspond@10.10.10.21
@@ -285,7 +294,21 @@ function sshc {
     ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'autodata1 client1 data dev facebook1 git keymaster legacy1 media1 p1 php1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
+complete -W 'api1 autodata1 client1 data db1 dev facebook1 git keymaster legacy1 media1 p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
+
+function tunnel {
+  if [ "xmp_postgres" == "$1" ]
+  then
+    ssh -L 5433:127.0.0.1:5432 -N -f xspond@xmp1.xspond.com
+  elif [ "staging_postgres" == "$1" ]
+  then
+    ssh -L 5434:127.0.0.1:5432 -N -f xspond@10.10.10.23
+  elif [ "db1_mongo" == "$1" ]
+  then
+    ssh -L 8888:10.10.11.10:27017 -N -f xspond@10.10.10.168
+  fi
+}
+complete -W 'staging_postgres xmp_postgres' $default tunnel
 
 
 # Functions
