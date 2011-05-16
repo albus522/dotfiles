@@ -33,7 +33,7 @@ def time(times = 1)
   Benchmark::realtime { yield }
 end
 
-def copy(data)
+def pbcopy(data)
   File.popen('pbcopy', 'w') { |p| p << data.to_s }
   $?.success?
 end
