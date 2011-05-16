@@ -240,7 +240,7 @@ complete -F _gem_doc_list gemdoc
 function sshc {
   if [ "api1" == "$1" ]
   then
-    ssh -A -t xspond@10.10.10.168 'ssh xspond@10.10.11.11'
+    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@api1.internal.xspond.com'
   elif [ "autodata1" == "$1" ]
   then
     ssh xspond@autodata1.xspond.com
@@ -252,7 +252,7 @@ function sshc {
     ssh Administrator@10.10.10.5
   elif [ "db1" == "$1" ]
   then
-    ssh -A -t xspond@10.10.10.168 'ssh xspond@10.10.11.10'
+    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@db1.internal.xspond.com'
   elif [ "dev" == "$1" ]
   then
     ssh xspond@dev.xspond.com
@@ -279,7 +279,7 @@ function sshc {
     ssh xspond@php1.xspond.com
   elif [ "proxy1" == "$1" ]
   then
-    ssh xspond@10.10.10.168
+    ssh xspond@proxy1.xspond.com
   elif [ "staging_autodata" == "$1" ]
   then
     ssh xspond@10.10.10.21
@@ -297,18 +297,27 @@ function sshc {
 complete -W 'api1 autodata1 client1 data db1 dev facebook1 git keymaster legacy1 media1 p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
 
 function tunnel {
-  if [ "xmp_postgres" == "$1" ]
+  if [ "api1_ipmi" == "$1" ]
   then
-    ssh -L 5433:127.0.0.1:5432 -N -f xspond@xmp1.xspond.com
+    ssh -L 8080:10.10.11.52:80 -N xspond@proxy1.xspond.com
+  elif [ "db1_areca" == "$1" ]
+  then
+    ssh -L 8080:10.10.11.101:80 -N xspond@proxy1.xspond.com
+  elif [ "db1_ipmi" == "$1" ]
+  then
+    ssh -L 8080:10.10.11.51:80 -N xspond@proxy1.xspond.com
+  elif [ "db1_mongo" == "$1" ]
+  then
+    ssh -L 8888:10.10.11.10:27017 -N -f xspond@proxy1.xspond.com
   elif [ "staging_postgres" == "$1" ]
   then
     ssh -L 5434:127.0.0.1:5432 -N -f xspond@10.10.10.23
-  elif [ "db1_mongo" == "$1" ]
+  elif [ "xmp_postgres" == "$1" ]
   then
-    ssh -L 8888:10.10.11.10:27017 -N -f xspond@10.10.10.168
+    ssh -L 5433:127.0.0.1:5432 -N -f xspond@xmp1.xspond.com
   fi
 }
-complete -W 'staging_postgres xmp_postgres' $default tunnel
+complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo staging_postgres xmp_postgres' $default tunnel
 
 
 # Functions
