@@ -346,7 +346,7 @@ export PATH=$PATH:/usr/local/git/bin:/Library/PostgreSQL/8.3/bin
 
 export MANPATH=/usr/local/git/man:$MANPATH
 
-export CDPATH=".:~:~/webdev:~/Desktop:~/Desktop/Imports"
+export CDPATH=".:~:~/webdev:~/webdev/platform:~/webdev/apps:~/webdev/xspond:~/webdev/client_sites:~/webdev/blueprints:~/webdev/helpers:~/webdev/libraries:~/webdev/server:~/webdev/misc:~/webdev/plugins:~/Desktop:~/Desktop/Imports"
 
 export CLICOLOR="1"
 
