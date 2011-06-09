@@ -161,7 +161,7 @@ done
 # alias sc='./script/console'
 function sc {
 	if [ -f './script/rails' ]; then
-		./script/rails console $*
+		rails console $*
 	else
 		./script/console $*
 	fi
@@ -169,7 +169,7 @@ function sc {
 # alias sr='./script/runner'
 function sr {
 	if [ -f './script/rails' ]; then
-		./script/rails runner $*
+		rails runner $*
 	else
 		./script/runner $*
 	fi
@@ -177,7 +177,7 @@ function sr {
 # alias ss='./script/server'
 function ss {
 	if [ -f './script/rails' ]; then
-		./script/rails server $*
+		rails server $*
 	elif [ -f './script/server' ]; then
 		./script/server $*
 	else
@@ -187,7 +187,7 @@ function ss {
 # alias sg='./script/generate'
 function sg {
 	if [ -f './script/rails' ]; then
-		./script/rails generate $*
+		rails generate $*
 	else
 		./script/generate $*
 	fi
