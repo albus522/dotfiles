@@ -158,7 +158,6 @@ done
 
 
 # Rails aliases
-# alias sc='./script/console'
 function sc {
 	if [ -f './script/rails' ]; then
 		rails console $*
@@ -166,7 +165,6 @@ function sc {
 		./script/console $*
 	fi
 }
-# alias sr='./script/runner'
 function sr {
 	if [ -f './script/rails' ]; then
 		rails runner $*
@@ -174,7 +172,6 @@ function sr {
 		./script/runner $*
 	fi
 }
-# alias ss='./script/server'
 function ss {
 	if [ -f './script/rails' ]; then
 		rails server $*
@@ -184,7 +181,6 @@ function ss {
 	  ruby -r webrick -e "trap('INT')  { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
 	fi
 }
-# alias sg='./script/generate'
 function sg {
 	if [ -f './script/rails' ]; then
 		rails generate $*
