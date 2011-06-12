@@ -281,7 +281,7 @@ function sshc {
     ssh xspond@autodata1.xspond.com
   elif [ "client1" == "$1" ]
   then
-    ssh xspond@207.32.178.195
+    ssh xspond@client1.xspond.com
   elif [ "data" == "$1" ]
   then
     ssh Administrator@10.10.10.5
@@ -306,6 +306,9 @@ function sshc {
   elif [ "media1" == "$1" ]
   then
     ssh xspond@media.xspond.com
+  elif [ "old_autodata" == "$1" ]
+  then
+    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@10.10.11.12'
   elif [ "p1" == "$1" ]
   then
     ssh xspond@production1.xspond.com
@@ -329,7 +332,7 @@ function sshc {
     ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'api1 autodata1 client1 data db1 dev facebook1 git keymaster legacy1 media1 p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
+complete -W 'api1 autodata1 client1 data db1 dev facebook1 git keymaster legacy1 media1 old_autodata p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
 
 function tunnel {
   if [ "api1_ipmi" == "$1" ]
@@ -343,16 +346,23 @@ function tunnel {
     ssh -L 8080:10.10.11.51:80 -N xspond@proxy1.xspond.com
   elif [ "db1_mongo" == "$1" ]
   then
-    ssh -L 8888:10.10.11.10:27017 -N -f xspond@proxy1.xspond.com
+    ssh -L 8888:db1:27017 -N xspond@proxy1.xspond.com
+  elif [ "dtp_rdc" == "$1" ]
+  then
+    ssh -L 3389:dtp:3389 -N -C xspond@proxy1.xspond.com
+  elif [ "netgear_http" == "$1" ]
+  then
+    open "http://localhost:9090/"
+    ssh -L 9090:10.10.11.5:80 -N -C xspond@proxy1.xspond.com
   elif [ "staging_postgres" == "$1" ]
   then
-    ssh -L 5434:127.0.0.1:5432 -N -f xspond@10.10.10.23
+    ssh -L 5434:127.0.0.1:5432 -N xspond@10.10.10.23
   elif [ "xmp_postgres" == "$1" ]
   then
-    ssh -L 5433:127.0.0.1:5432 -N -f xspond@xmp1.xspond.com
+    ssh -L 5433:127.0.0.1:5432 -N xspond@xmp1.xspond.com
   fi
 }
-complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo staging_postgres xmp_postgres' $default tunnel
+complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo dtp_rdc netgear_http staging_postgres xmp_postgres' $default tunnel
 
 
 # Functions
