@@ -279,6 +279,9 @@ function sshc {
   elif [ "autodata1" == "$1" ]
   then
     ssh xspond@autodata1.xspond.com
+  elif [ "aws1" == "$1" ]
+  then
+    ssh ubuntu@ec2-184-72-213-130.compute-1.amazonaws.com
   elif [ "client1" == "$1" ]
   then
     ssh xspond@client1.xspond.com
@@ -288,6 +291,9 @@ function sshc {
   elif [ "db1" == "$1" ]
   then
     ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@db1.internal.xspond.com'
+  elif [ "db2" == "$1" ]
+  then
+    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@db2.internal.xspond.com'
   elif [ "dev" == "$1" ]
   then
     ssh xspond@dev.xspond.com
@@ -308,7 +314,7 @@ function sshc {
     ssh xspond@media.xspond.com
   elif [ "old_autodata" == "$1" ]
   then
-    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@10.10.11.12'
+    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@autodata1.internal.xspond.com'
   elif [ "p1" == "$1" ]
   then
     ssh xspond@production1.xspond.com
@@ -332,7 +338,7 @@ function sshc {
     ssh xspond@xmp1.xspond.com
   fi
 }
-complete -W 'api1 autodata1 client1 data db1 dev facebook1 git keymaster legacy1 media1 old_autodata p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
+complete -W 'api1 autodata1 aws1 client1 data db1 db2 dev facebook1 git keymaster legacy1 media1 old_autodata p1 php1 proxy1 staging_autodata staging_media staging_xmp1 xmp1' $default sshc
 
 function tunnel {
   if [ "api1_ipmi" == "$1" ]
