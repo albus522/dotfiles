@@ -122,7 +122,7 @@ alias m='mate .'
 
 # Setup automatic bundle exec for common gem executables
 
-BUNDLED_COMMANDS="${BUNDLED_COMMANDS:-cucumber heroku rackup rails rake rspec ruby shotgun spec spork unicorn unicorn_rails}"
+BUNDLED_COMMANDS="${BUNDLED_COMMANDS:-cucumber heroku padrino rackup rails rake rspec ruby shotgun spec spork unicorn unicorn_rails}"
 
 ## Functions
 
@@ -157,10 +157,12 @@ done
 
 
 
-# Rails aliases
+# Rails/Padrino aliases
 function sc {
 	if [ -f './script/rails' ]; then
 		rails console $*
+	elif [ -f './config/apps.rb' ]; then
+	  padrino console $*
 	else
 		./script/console $*
 	fi
@@ -177,6 +179,8 @@ function ss {
 		rails server $*
 	elif [ -f './script/server' ]; then
 		./script/server $*
+	elif [ -f './config/apps.rb' ]; then
+	  padrino start $*
 	else
 	  ruby -r webrick -e "trap('INT')  { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
 	fi
@@ -184,6 +188,8 @@ function ss {
 function sg {
 	if [ -f './script/rails' ]; then
 		rails generate $*
+	elif [ -f './config/apps.rb' ]; then
+	  padrino g $*
 	else
 		./script/generate $*
 	fi
