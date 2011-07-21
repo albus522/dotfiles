@@ -360,6 +360,9 @@ function tunnel {
   elif [ "db1_mongo" == "$1" ]
   then
     ssh -L 8888:db1:27017 -N xspond@proxy1.xspond.com
+  elif [ "db1_mysql" == "$1" ]
+  then
+    ssh -L 3308:db1:3306 -N xspond@proxy1.xspond.com
   elif [ "dtp_rdc" == "$1" ]
   then
     ssh -L 3389:dtp:3389 -N -C xspond@proxy1.xspond.com
@@ -375,7 +378,7 @@ function tunnel {
     ssh -L 5433:127.0.0.1:5432 -N xspond@xmp1.xspond.com
   fi
 }
-complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo dtp_rdc netgear_http staging_postgres xmp_postgres' $default tunnel
+complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo db1_mysql dtp_rdc netgear_http staging_postgres xmp_postgres' $default tunnel
 
 
 # Functions
