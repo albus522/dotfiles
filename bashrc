@@ -403,7 +403,15 @@ export PATH=$PATH:/usr/local/git/bin:/Library/PostgreSQL/8.3/bin
 
 export MANPATH=/usr/local/git/man:$MANPATH
 
-export CDPATH=".:~:~/webdev:~/webdev/platform:~/webdev/apps:~/webdev/xspond:~/webdev/client_sites:~/webdev/blueprints:~/webdev/helpers:~/webdev/libraries:~/webdev/server:~/webdev/misc:~/webdev/plugins:~/Desktop:~/Desktop/Imports"
+# Setup CDPATH
+PROJ_DIR="~/webdev"
+ORDERED_SUBFOLDERS="citadel platform apps xspond client_sites blueprints helpers libraries server misc plugins"
+
+CDPATH=".:~:$PROJ_DIR"
+for FOLDER in $ORDERED_SUBFOLDERS; do
+  CDPATH="$CDPATH:$PROJ_DIR/$FOLDER"
+done
+export CDPATH="$CDPATH:~/Desktop:~/Desktop/Imports"
 
 export CLICOLOR="1"
 
