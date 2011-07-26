@@ -116,7 +116,14 @@ alias ...='cd .. && cd ..'
 alias ....='cd .. && cd .. && cd ..'
 alias .....='cd .. && cd .. && cd .. && cd ..'
 
-alias m='mate .'
+function m {
+  files=$(ls *.tmproj 2> /dev/null)
+  if [ "$files" != "" ]; then
+    open $files
+  else
+    mate .
+  fi
+}
 
 
 
