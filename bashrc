@@ -226,6 +226,7 @@ alias gdc='git diff --cached | gitx'
 alias gdic='git diff --cached --ignore-space-change | gitx'
 alias gi='git commit'
 alias gc='git checkout'
+alias gt='gittower'
 
 function git-add-remote-branch {
   git push origin origin:refs/heads/$1
