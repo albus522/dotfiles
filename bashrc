@@ -290,7 +290,7 @@ complete -F _gem_doc_list gemdoc
 function sshc {
   if [ "api1" == "$1" ]
   then
-    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@api1.internal.xspond.com'
+    ssh xspond@api1 -o 'ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p'
   elif [ "autodata1" == "$1" ]
   then
     ssh xspond@autodata1.xspond.com
@@ -305,10 +305,10 @@ function sshc {
     ssh Administrator@10.10.10.5
   elif [ "db1" == "$1" ]
   then
-    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@db1.internal.xspond.com'
+    ssh xspond@db1 -o 'ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p'
   elif [ "db2" == "$1" ]
   then
-    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@db2.internal.xspond.com'
+    ssh xspond@db2 -o 'ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p'
   elif [ "dev" == "$1" ]
   then
     ssh xspond@dev.xspond.com
@@ -329,7 +329,7 @@ function sshc {
     ssh xspond@media.xspond.com
   elif [ "old_autodata" == "$1" ]
   then
-    ssh -A -t xspond@proxy1.xspond.com 'ssh xspond@autodata1.internal.xspond.com'
+    ssh xspond@autodata1 -o 'ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p'
   elif [ "p1" == "$1" ]
   then
     ssh xspond@production1.xspond.com
