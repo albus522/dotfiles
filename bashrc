@@ -403,6 +403,7 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 
 export BUNDLER_EDITOR=mate
 
+export EVENT_NOKQUEUE=yes
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"

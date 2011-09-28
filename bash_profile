@@ -43,5 +43,3 @@ fi
 #  source "${HOME}/.bashrc"
 #fi
 
-
-export EVENT_NOKQUEUE=yes
