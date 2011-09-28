@@ -379,7 +379,7 @@ export MANPATH=/usr/local/git/man:$MANPATH
 
 # Setup CDPATH
 PROJ_DIR="~/webdev"
-ORDERED_SUBFOLDERS="citadel platform apps xspond client_sites blueprints helpers libraries server misc plugins"
+ORDERED_SUBFOLDERS="citadel omega platform apps xspond client_sites blueprints helpers libraries server misc plugins"
 
 CDPATH=".:~:$PROJ_DIR"
 for FOLDER in $ORDERED_SUBFOLDERS; do
