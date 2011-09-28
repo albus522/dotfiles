@@ -396,7 +396,11 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 
 export BUNDLER_EDITOR=mate
 
-if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
-[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+
+export PATH="$HOME/.rbenv/bin:$PATH"
+eval "$(rbenv init -)"
 
 export PATH="./.bin:$PATH"
+
+#if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
+#[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
