@@ -126,44 +126,6 @@ function m {
 }
 
 
-
-# Setup automatic bundle exec for common gem executables
-
-BUNDLED_COMMANDS="${BUNDLED_COMMANDS:-cucumber heroku padrino rackup rails rake rspec ruby shotgun spec spork unicorn unicorn_rails}"
-
-## Functions
-
-function bundler-installed {
-  which bundle > /dev/null 2>&1
-}
-
-function within-bundled-project {
-  local dir="$(pwd)"
-  while [ "$(dirname $dir)" != "/" ]; do
-    [ -f "$dir/Gemfile" ] && return
-    dir="$(dirname $dir)"
-  done
-  false
-}
-
-function run-with-bundler {
-  local command="$1"
-  shift
-  if bundler-installed && within-bundled-project; then
-    bundle exec $command "$@"
-  else
-    $command "$@"
-  fi
-}
-
-## Main program
-
-for CMD in $BUNDLED_COMMANDS; do
-  alias $CMD="run-with-bundler $CMD"
-done
-
-
-
 # Rails/Padrino aliases
 function sc {
 	if [ -f './script/rails' ]; then
@@ -208,7 +170,7 @@ alias rdm='rake db:migrate'
 alias rr='rake routes'
 
 alias b='bundle'
-alias bi="b install --path vendor"
+alias bi="b install --path vendor --binstubs=.bin"
 alias bu="b update"
 alias be="b exec"
 alias bo="b open"
@@ -436,3 +398,5 @@ export BUNDLER_EDITOR=mate
 
 if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
 [[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+
+export PATH="./.bin:$PATH"
