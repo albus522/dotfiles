@@ -110,6 +110,8 @@ alias ll='ls -l'                              # long list
 alias la='ls -A'                              # all but . and ..
 # alias l='ls -CF'                              #
 
+alias mkdir='mkdir -p'
+
 # Moving up directories
 alias ..='cd ..'
 alias ...='cd .. && cd ..'
