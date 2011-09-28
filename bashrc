@@ -176,18 +176,23 @@ alias be="b exec"
 alias bo="b open"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
+if [ "$DIFF_TOOL" == '' ]; then
+	export DIFF_TOOL='mate'
+fi
+
 # Aliases for git
 alias gl='git pull'
 alias gp='git push'
 alias gb='git branch -a -v'
 alias gst='git status'
 alias gss='ruby ~/.submodule_status.rb `pwd`'
-alias gd='git diff | gitx'
-alias gdi='git diff --ignore-space-change | gitx'
-alias gdc='git diff --cached | gitx'
-alias gdic='git diff --cached --ignore-space-change | gitx'
+alias gd="git diff | $DIFF_TOOL"
+alias gdi="git diff --ignore-space-change | $DIFF_TOOL"
+alias gdc="git diff --cached | $DIFF_TOOL"
+alias gdic="git diff --cached --ignore-space-change | $DIFF_TOOL"
 alias gi='git commit'
 alias gc='git checkout'
+alias gcl='git clone'
 alias gt='gittower'
 
 function git-add-remote-branch {
