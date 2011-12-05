@@ -118,6 +118,8 @@ alias ...='cd .. && cd ..'
 alias ....='cd .. && cd .. && cd ..'
 alias .....='cd .. && cd .. && cd .. && cd ..'
 
+alias pc="pwd | ruby -pe '\$_.strip!' | pbcopy"
+
 function m {
   files=$(ls *.tmproj 2> /dev/null)
   if [ "$files" != "" ]; then
