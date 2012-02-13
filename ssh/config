@@ -1,0 +1,58 @@
+Host *
+	ServerAliveInterval 240
+
+Host 10.10.10.*
+	ServerAliveInterval 3600
+
+Host api1
+	user xspond
+	ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p
+
+Host client1
+	Hostname client1.xspond.com
+	user xspond
+
+Host data
+	Hostname 10.10.10.5
+	user Administrator
+
+Host db1
+	user xspond
+	ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p
+
+Host db2
+	user xspond
+	ProxyCommand ssh gateway@proxy1.xspond.com exec nc %h %p
+
+Host dev
+	Hostname dev.xspond.com
+	user xspond
+
+Host facebook1
+	Hostname facebook1.xspond.com
+	user xspond
+
+Host git
+	Hostname git.xspond.com
+	user xspond
+
+Host keymaster
+	Hostname keymaster.xspond.com
+	user keymaster
+
+Host legacy1
+	Hostname legacy1.xspond.com
+	user xspond
+
+Host media1
+	Hostname media.xspond.com
+	user xspond
+
+Host proxy1
+	Hostname proxy1.xspond.com
+	user xspond
+
+Host xmp1
+	Hostname xmp1.xspond.com
+	user xspond
+
