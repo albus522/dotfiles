@@ -78,184 +78,12 @@ export HISTIGNORE="&:ls:[bf]g:exit:gst:gl:gp:gitx"
 # Whenever displaying the prompt, write the previous line to disk
 # export PROMPT_COMMAND="history -a"
 
-# Aliases
-# #######
 
-# Some example alias instructions
-# If these are enabled they will be used instead of any instructions
-# they may mask.  For example, alias rm='rm -i' will mask the rm
-# application.  To override the alias instruction use a \ before, ie
-# \rm will call the real rm not the alias.
+# Functions
+# #########
 
-# Interactive operation...
-# alias rm='rm -i'
-# alias cp='cp -i'
-# alias mv='mv -i'
-
-# Default to human readable figures
-alias df='df -h'
-alias du='du -h'
-
-# Misc :)
-# alias less='less -r'                          # raw control characters
-# alias whence='type -a'                        # where, of a sort
-alias grep='grep --color'                     # show differences in colour
-alias myips="ifconfig | grep 'inet ' | grep -v 127.0.0.1 | cut -d\   -f2"
-
-# Some shortcuts for different directory listings
-# alias ls='ls -hF --color=tty'                 # classify files in colour
-# alias dir='ls --color=auto --format=vertical'
-# alias vdir='ls --color=auto --format=long'
-alias ll='ls -l'                              # long list
-alias la='ls -A'                              # all but . and ..
-# alias l='ls -CF'                              #
-
-alias mkdir='mkdir -p'
-
-# Moving up directories
-alias ..='cd ..'
-alias ...='cd .. && cd ..'
-alias ....='cd .. && cd .. && cd ..'
-alias .....='cd .. && cd .. && cd .. && cd ..'
-
-alias pc="pwd | ruby -pe '\$_.strip!' | pbcopy"
-
-function m {
-  files=$(ls *.tmproj 2> /dev/null)
-  if [ "$files" != "" ]; then
-    open $files
-  else
-    mate .
-  fi
-}
-
-
-# Rails/Padrino aliases
-function sc {
-	if [ -f './script/rails' ]; then
-		rails console $*
-	elif [ -f './config/apps.rb' ]; then
-	  padrino console $*
-	else
-		./script/console $*
-	fi
-}
-function sr {
-	if [ -f './script/rails' ]; then
-		rails runner $*
-	else
-		./script/runner $*
-	fi
-}
-function ss {
-	if [ -f './script/rails' ]; then
-		rails server $*
-	elif [ -f './script/server' ]; then
-		./script/server $*
-	elif [ -f './config/apps.rb' ]; then
-	  padrino start $*
-	else
-	  ruby -r webrick -e "trap('INT')  { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
-	fi
-}
-function sg {
-	if [ -f './script/rails' ]; then
-		rails generate $*
-	elif [ -f './config/apps.rb' ]; then
-	  padrino g $*
-	else
-		./script/generate $*
-	fi
-}
-alias tfd='tail -f log/development.log'
-alias tfp='tail -f log/production.log'
-alias atr='autotest -rails'
-alias rdm='rake db:migrate'
-alias rr='rake routes'
-
-alias b='bundle'
-alias bi="b install --path vendor --binstubs=.bin"
-alias bu="b update"
-alias be="b exec"
-alias bo="b open"
-alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
-
-if [ "$DIFF_TOOL" == '' ]; then
-	export DIFF_TOOL='mate'
-fi
-
-# Aliases for git
-alias gl='git pull'
-alias gp='git push'
-alias gb='git branch -a -v'
-alias gst='git status'
-alias gss='ruby ~/.submodule_status.rb `pwd`'
-alias gd="git diff | $DIFF_TOOL"
-alias gdi="git diff --ignore-space-change | $DIFF_TOOL"
-alias gdc="git diff --cached | $DIFF_TOOL"
-alias gdic="git diff --cached --ignore-space-change | $DIFF_TOOL"
-alias gi='git commit'
-alias gc='git checkout'
-alias gcl='git clone'
-alias gt='gittower'
-
-function git-add-remote-branch {
-  git push origin origin:refs/heads/$1
-}
-
-function git-add-remote-branch-and-checkout {
-  git push origin origin:refs/heads/$1
-  git checkout --track -b $1 origin/$1
-}
-
-function git-remove-remote-branch {
-  git push origin :heads/$1
-}
-
-complete -o bashdefault -o default -o nospace -F _git_pull gl 2>/dev/null \
-	|| complete -o default -o nospace -F _git_pull gl
-complete -o bashdefault -o default -o nospace -F _git_push gp 2>/dev/null \
-	|| complete -o default -o nospace -F _git_push gp
-complete -o bashdefault -o default -o nospace -F _git_status gst 2>/dev/null \
-	|| complete -o default -o nospace -F _git_status gst
-complete -o bashdefault -o default -o nospace -F _git_checkout gc 2>/dev/null \
-	|| complete -o default -o nospace -F _git_checkout gc
-complete -o bashdefault -o default -o nospace -F _git_commit gi 2>/dev/null \
-	|| complete -o default -o nospace -F _git_commit gi
-
-
-# Aliases for ruby
-
-# use completion and require rubygems by default for irb
-alias irb='irb -r irb/completion -rubygems'
-
-alias gemdir='gem env gemdir'
-
-# really awesome function, use: cdgem <gem name>, cd's into your gems directory
-# and opens gem that best matches the gem name provided
-function cdgem {
-  cd `gemdir`/gems
-  cd `ls | grep $1 | sort | tail -1`
-}
-function gemdoc {
-  GEMDIR=`gemdir`/doc
-  open $GEMDIR/`ls $GEMDIR | grep $1 | sort | tail -1`/rdoc/index.html
-}
-function mategem {
-  GEMDIR=`gemdir`/gems
-  mate $GEMDIR/`ls $GEMDIR | grep $1 | sort | tail -1`
-}
-
-function _gem_list {
-  COMPREPLY=($(compgen -W "$(ls `gemdir`/gems)" -- "${COMP_WORDS[COMP_CWORD]}"))
-}
-function _gem_doc_list {
-  COMPREPLY=($(compgen -W "$(ls `gemdir`/doc)" -- "${COMP_WORDS[COMP_CWORD]}"))
-}
-
-complete -F _gem_list cdgem
-complete -F _gem_list mategem
-complete -F _gem_doc_list gemdoc
+# Some example functions
+# function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
 
 function sshc {
@@ -420,3 +248,7 @@ export PATH="./.bin:$PATH"
 
 #if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
 #[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
+
+if [ -e "${HOME}/.aliases" ] ; then
+  source "${HOME}/.aliases"
+fi
