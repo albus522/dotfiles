@@ -125,20 +125,39 @@ function tunnel {
 }
 complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo db1_mysql db2_mongo dtp_rdc netgear_http staging_postgres vm1_areca xmp_postgres' $default tunnel
 
+PROJ_DIR="$HOME/webdev"
 
-# Functions
-# #########
+function __rbenv_ruby_version() {
+	if [[ "$PWD" == "$PROJ_DIR"* ]]; then
+		printf "${1:- (%s)}" `rbenv version-name`
+	fi
+}
 
-# Some example functions
-# function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
+function __custom_working_dir() {
+	if [[ "$PWD" == "$PROJ_DIR/"* ]]; then
+		printf "${1:-%s}" "${PWD#*webdev/}"
+	elif [[ "$PWD" == "$HOME" ]]; then
+		printf "${1:-%s}" "~"
+	else
+		printf "${1:-%s}" "$(basename $PWD)"
+	fi
+}
+
+export PS1="\h:\u \e[0;33m\$(__custom_working_dir)\e[0m"
 
 if type -t __git_ps1 > /dev/null
 then
-  export PS1="\h:\W \u\$(__git_ps1 ' {%s}')\$ "
+	export GIT_PS1_SHOWDIRTYSTATE="true"
+	export GIT_PS1_SHOWUPSTREAM="true"
+	export PS1="$PS1\$(__git_ps1 ' {%s}')"
 elif which git > /dev/null
 then
-  export PS1="\h:\W \u\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1}/')\$ "
+	export PS1="$PS1\$(git branch 2> /dev/null | grep -e '\* ' | sed 's/^..\(.*\)/ {\1}/')"
 fi
+
+export PS1="$PS1\$(__rbenv_ruby_version)"
+
+export PS1="$PS1 \$ "
 
 # stty erase 
 
@@ -153,7 +172,7 @@ export PATH=$PATH:/usr/local/git/bin:/Library/PostgreSQL/8.3/bin
 export MANPATH=/usr/local/git/man:$MANPATH
 
 # Setup CDPATH
-PROJ_DIR="~/webdev"
+
 ORDERED_SUBFOLDERS="client_sites citadel omega platform apps xspond blueprints helpers libraries server misc plugins"
 
 CDPATH=".:~:$PROJ_DIR"
