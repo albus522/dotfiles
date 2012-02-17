@@ -44,7 +44,7 @@ Host legacy1
 	Hostname legacy1.xspond.com
 	user xspond
 
-Host media1
+Host media
 	Hostname media.xspond.com
 	user xspond
 
