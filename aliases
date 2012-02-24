@@ -142,16 +142,56 @@ function git-remove-remote-branch {
 	git push origin :heads/$1
 }
 
-complete -o bashdefault -o default -o nospace -F _git_pull gl 2>/dev/null \
-	|| complete -o default -o nospace -F _git_pull gl
-complete -o bashdefault -o default -o nospace -F _git_push gp 2>/dev/null \
-	|| complete -o default -o nospace -F _git_push gp
+_gl_git ()
+{
+	local i c=1 command="pull" __git_dir
+
+	local cur words cword prev
+	_get_comp_words_by_ref -n =: cur words cword prev
+
+	_git_pull
+}
+
+_gp_git ()
+{
+	local i c=1 command="push" __git_dir
+
+	local cur words cword prev
+	_get_comp_words_by_ref -n =: cur words cword prev
+
+	_git_push
+}
+
+_gc_git ()
+{
+	local i c=1 command="checkout" __git_dir
+
+	local cur words cword prev
+	_get_comp_words_by_ref -n =: cur words cword prev
+
+	_git_checkout
+}
+
+_gi_git ()
+{
+	local i c=1 command="commit" __git_dir
+
+	local cur words cword prev
+	_get_comp_words_by_ref -n =: cur words cword prev
+
+	_git_commit
+}
+
+complete -o bashdefault -o default -o nospace -F _gl_git gl 2>/dev/null \
+	|| complete -o default -o nospace -F _gl_git gl
+complete -o bashdefault -o default -o nospace -F _gp_git gp 2>/dev/null \
+	|| complete -o default -o nospace -F _gp_git gp
 complete -o bashdefault -o default -o nospace -F _git_status gst 2>/dev/null \
 	|| complete -o default -o nospace -F _git_status gst
-complete -o bashdefault -o default -o nospace -F _git_checkout gc 2>/dev/null \
-	|| complete -o default -o nospace -F _git_checkout gc
-complete -o bashdefault -o default -o nospace -F _git_commit gi 2>/dev/null \
-	|| complete -o default -o nospace -F _git_commit gi
+complete -o bashdefault -o default -o nospace -F _gc_git gc 2>/dev/null \
+	|| complete -o default -o nospace -F _gc_git gc
+complete -o bashdefault -o default -o nospace -F _gi_git gi 2>/dev/null \
+	|| complete -o default -o nospace -F _gi_git gi
 
 
 # Aliases for ruby
