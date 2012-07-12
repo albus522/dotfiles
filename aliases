@@ -117,7 +117,7 @@ alias bo="b open"
 alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 
 # Aliases for git
-alias gl='git pull'
+alias gl='git pull --rebase'
 alias gp='git push'
 alias gb='git branch -a -v'
 alias gst='git status'
