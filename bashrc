@@ -168,10 +168,6 @@ export PS1="$PS1 \$ "
 # export EC2_CERT=~/.ec2/cert-Y4HR7ABMOEFP56SQUHSEL5FBYT3A753C.pem
 # export JAVA_HOME="/cygdrive/c/Program Files/Java/jdk1.6.0_03"
 
-export PATH=$PATH:/usr/local/git/bin:/Library/PostgreSQL/8.3/bin
-
-export MANPATH=/usr/local/git/man:$MANPATH
-
 # Setup CDPATH
 
 ORDERED_SUBFOLDERS="client_sites citadel omega platform apps xspond blueprints helpers libraries server misc plugins"
@@ -192,6 +188,9 @@ export RUBY_GC_MALLOC_LIMIT=50000000
 export BUNDLER_EDITOR=mate
 
 export EVENT_NOKQUEUE=yes
+
+
+export PATH=/usr/local/bin:$PATH
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
