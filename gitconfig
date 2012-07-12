@@ -1,0 +1,19 @@
+[user]
+  name = David Genord II
+  email = david@collectiveidea.com
+[core]
+  excludesfile = ~/.gitignore
+[branch]
+  autosetupmerge = true
+  autosetuprebase = always
+[color]
+  branch = auto
+  status = auto
+[pack]
+  threads = 0
+[diff]
+  renamelimit = 0
+[mergetool]
+  keepBackup = true
+[push]
+  default = current

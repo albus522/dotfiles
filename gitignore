@@ -1,0 +1,6 @@
+.DS_Store
+CREDENTIALS
+*.pid
+*.tmproj
+/.bin/
+/vendor/ruby
