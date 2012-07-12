@@ -105,6 +105,9 @@ alias tfp='tail -f log/production.log'
 alias atr='autotest -rails'
 alias rdm='rake db:migrate'
 alias rr='rake routes'
+alias rt='ruby -I test'
+alias rtu='rake test:units'
+alias bec='bundle exec cucumber'
 
 alias b='bundle'
 alias bi="b install --path vendor --binstubs=.bin"
