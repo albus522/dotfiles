@@ -108,6 +108,7 @@ alias rr='rake routes'
 alias rt='ruby -I test'
 alias rtu='rake test:units'
 alias bec='bundle exec cucumber'
+alias fms='foreman start'
 
 alias b='bundle'
 alias bi="b install --path vendor --binstubs=.bin"
