@@ -139,7 +139,8 @@ function __custom_working_dir() {
 	elif [[ "$PWD" == "$HOME" ]]; then
 		printf "${1:-%s}" "~"
 	else
-		printf "${1:-%s}" "$(basename $PWD)"
+		dir=`basename "$PWD"`
+		printf "${1:-%s}" "$dir"
 	fi
 }
 
