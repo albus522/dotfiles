@@ -143,7 +143,7 @@ function __custom_working_dir() {
 	fi
 }
 
-export PS1="\h:\u \e[0;33m\$(__custom_working_dir)\e[0m"
+export PS1="\[\033[G\]\h:\u \[\e[0;33m\]\$(__custom_working_dir)\[\e[0m\]"
 
 if type -t __git_ps1 > /dev/null
 then
