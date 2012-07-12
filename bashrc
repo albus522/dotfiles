@@ -197,8 +197,6 @@ eval "$(rbenv init -)"
 
 export PATH="./.bin:$PATH"
 
-#if [ -s ~/.rvm/scripts/rvm ] ; then source ~/.rvm/scripts/rvm ; fi
-#[[ -r $rvm_path/scripts/completion ]] && source $rvm_path/scripts/completion
 
 if [ -e "${HOME}/.aliases" ] ; then
   source "${HOME}/.aliases"
