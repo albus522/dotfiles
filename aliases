@@ -239,4 +239,6 @@ complete -F _gem_list cdgem
 complete -F _gem_list mategem
 complete -F _gem_doc_list gemdoc
 
-
+function keynote_highlight_ruby {
+	pbpaste | highlight -O rtf --font-size 24 --font Menlo --style moe --src-lang ruby | pbcopy
+}
