@@ -136,7 +136,9 @@ alias gdic="git diff --cached --ignore-space-change | $DIFF_TOOL"
 alias gi='git commit'
 alias gc='git checkout'
 alias gcl='git clone'
-alias gt='gittower'
+alias grc='git rebase --continue'
+alias gri='git rebase -i'
+alias gt='gittower --status'
 alias gh='github'
 
 function git-add-remote-branch {
