@@ -174,13 +174,13 @@ export PS1="$PS1 \$ "
 
 # Setup CDPATH
 
-ORDERED_SUBFOLDERS="client_sites citadel omega platform apps xspond blueprints helpers libraries server misc plugins"
+ORDERED_SUBFOLDERS="clients internal libraries electronics personal"
 
 CDPATH=".:~:$PROJ_DIR"
 for FOLDER in $ORDERED_SUBFOLDERS; do
   CDPATH="$CDPATH:$PROJ_DIR/$FOLDER"
 done
-export CDPATH="$CDPATH:~/Desktop:~/Desktop/Imports"
+export CDPATH="$CDPATH:~/Desktop"
 
 export CLICOLOR="1"
 
