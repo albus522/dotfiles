@@ -184,6 +184,10 @@ export CDPATH="$CDPATH:~/Desktop"
 
 export CLICOLOR="1"
 
+export CHOST="x86_64-pc-linux-gnu"
+export CFLAGS="-march=nocona -O3 -pipe -fomit-frame-pointer"
+export CXXFLAGS="${CFLAGS}"
+
 export RUBY_HEAP_MIN_SLOTS=250000
 export RUBY_HEAP_SLOTS_INCREMENT=25000
 export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
