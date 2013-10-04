@@ -198,7 +198,7 @@ export BUNDLER_EDITOR=mate
 export EVENT_NOKQUEUE=yes
 
 
-export PATH=/usr/local/bin:$PATH
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
