@@ -1,6 +1,17 @@
 .DS_Store
+.foreman
+.irb_history
+.powrc
+.rbenv-version
+.tm_properties
 CREDENTIALS
 *.pid
 *.tmproj
+*.swp
+/rerun.txt
 /.bin/
+/.bundle/config
+/db/*.sqlite*
+/vendor/jruby
+/vendor/rbx
 /vendor/ruby
