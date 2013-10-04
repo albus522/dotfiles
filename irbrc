@@ -4,7 +4,11 @@ require 'irb/ext/save-history'
 require 'pp'
 
 IRB.conf[:SAVE_HISTORY] = 1000
-IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+if ENV['PWD'].index('/webdev/')
+  IRB.conf[:HISTORY_FILE] = "#{ENV['PWD']}/.irb_history"
+else
+  IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
+end
 IRB.conf[:PROMPT_MODE] = :SIMPLE
 
 
