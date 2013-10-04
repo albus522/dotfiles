@@ -52,12 +52,14 @@ function m {
 
 # Rails/Padrino aliases
 function sc {
-	if [ -f './script/rails' ]; then
+	if [ -f './script/console' ]; then
+		./script/console $*
+	elif [ -f './script/rails' ]; then
 		./script/rails console $*
 	elif [ -f './config/apps.rb' ]; then
 		padrino console $*
 	else
-		./script/console $*
+		rails console $*
 	fi
 }
 function sr {
@@ -87,8 +89,10 @@ function ss {
 		./script/server $*
 	elif [ -f './config/apps.rb' ]; then
 		padrino start $*
+	elif [ -f './bin/rails' ]; then
+		rails server $*
 	else
-		ruby -r webrick -e "trap('INT')	 { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
+		ruby -r webrick -e "trap('INT') { @server.stop }; (@server = WEBrick::HTTPServer.new(:DocumentRoot => Dir.pwd, :Port => 3000)).start"
 	fi
 }
 function sg {
@@ -96,6 +100,8 @@ function sg {
 		./script/rails generate $*
 	elif [ -f './config/apps.rb' ]; then
 		padrino g $*
+	elif [ -f './bin/rails' ]; then
+		rails generate $*
 	else
 		./script/generate $*
 	fi
@@ -103,7 +109,7 @@ function sg {
 alias tfd='tail -f log/development.log'
 alias tfp='tail -f log/production.log'
 alias atr='autotest -rails'
-alias rdm='rake db:migrate'
+alias rdm='rake db:migrate && rake db:test:prepare'
 alias rr='rake routes'
 alias rt='ruby -I test'
 alias rtu='rake test:units'
