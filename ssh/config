@@ -1,5 +1,39 @@
 Host *
-	ServerAliveInterval 240
+	ServerAliveInterval 60
 
 Host 10.10.10.*
 	ServerAliveInterval 3600
+
+Host 192.168.*
+	ServerAliveInterval 3600
+
+Host 172.19.*
+	ServerAliveInterval 3600
+
+Host kegbot-dev.local
+	user pi
+
+Host beer.local
+	user pi
+
+Host bender.collectiveidea.com
+	user pi
+
+Host data-center.local
+	user admin
+
+Host ds
+	Hostname 192.168.2.4
+	user root
+
+Host eric
+	user pair
+	Hostname 172.19.254.201
+
+Host eric-apt
+	user pair
+	Hostname 108.182.51.190
+
+Host chris
+	user pair
+	Hostname 98.243.145.126
