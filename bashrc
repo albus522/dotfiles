@@ -209,3 +209,5 @@ export PATH="./.bin:$PATH"
 if [ -e "${HOME}/.aliases" ] ; then
   source "${HOME}/.aliases"
 fi
+
+export PATH="~/.dotfiles/bin:$PATH"
