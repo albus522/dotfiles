@@ -3,6 +3,7 @@
 .irb_history
 .powrc
 .rbenv-version
+.ruby-version
 .tm_properties
 CREDENTIALS
 *.pid
@@ -12,6 +13,7 @@ CREDENTIALS
 /.bin/
 /.bundle/config
 /db/*.sqlite*
+/dragonfly
 /vendor/jruby
 /vendor/rbx
 /vendor/ruby
