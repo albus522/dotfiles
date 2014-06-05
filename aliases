@@ -140,6 +140,13 @@ alias grc='git rebase --continue'
 alias gri='git rebase -i'
 alias gt='gittower --status'
 alias gh='github'
+alias gpr='git push -u && github browse'
+
+function git-clean {
+	git checkout master && \
+	git branch --merged | grep -v "\*" | xargs -n 1 git branch -d && \
+	git remote prune origin
+}
 
 function git-add-remote-branch {
 	git push origin origin:refs/heads/$1
