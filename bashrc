@@ -210,4 +210,8 @@ if [ -e "${HOME}/.aliases" ] ; then
   source "${HOME}/.aliases"
 fi
 
+if [ -e "${HOME}/.dotfiles/heroku_completion" ] ; then
+  source "${HOME}/.dotfiles/heroku_completion"
+fi
+
 export PATH="~/.dotfiles/bin:$PATH"
