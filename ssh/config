@@ -15,6 +15,9 @@ Host 192.168.*
 Host 172.19.*
 	ServerAliveInterval 3600
 
+Host odroid*.local
+  user odroid
+
 Host kegbot-dev.local
 	user pi
 
@@ -22,6 +25,9 @@ Host beer.local
 	user pi
 
 Host bender.collectiveidea.com
+	user pi
+
+Host therm.local
 	user pi
 
 Host data-center.local
