@@ -50,4 +50,14 @@ def copy_history
   copy content
 end
 
+require 'big_decimal'
+
+BigDecimal.class_eval do
+  alias_method :old_inspect, :inspect
+
+  def inspect
+    old_inspect.sub(/'.*'/, "'#{to_s}'")
+  end
+end
+
 load File.dirname(__FILE__) + '/.railsrc' if $0 == 'irb' && ENV['RAILS_ENV']
