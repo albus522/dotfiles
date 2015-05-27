@@ -117,7 +117,7 @@ alias bec='bundle exec cucumber'
 alias fms='foreman start'
 
 alias b='bundle'
-alias bi="b install --path vendor --binstubs=.bin"
+alias bi="b install --path vendor --binstubs=.bin -j 4"
 alias bu="b update"
 alias be="b exec"
 alias bo="b open"
@@ -127,7 +127,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 alias gl='git pull --rebase'
 alias gp='git push'
 alias gb='git branch -a -v'
-alias gst='git status'
+alias gst='git status -sb'
 alias gss='ruby ~/.submodule_status.rb `pwd`'
 alias gd="git diff | $DIFF_TOOL"
 alias gdi="git diff --ignore-space-change | $DIFF_TOOL"
@@ -138,7 +138,7 @@ alias gc='git checkout'
 alias gcl='git clone'
 alias grc='git rebase --continue'
 alias gri='git rebase -i'
-alias gt='gittower --status'
+alias gt='gittower .'
 alias gh='github'
 alias gpr='git push -u && github browse'
 
