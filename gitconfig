@@ -17,3 +17,7 @@
   keepBackup = true
 [push]
   default = current
+[rebase]
+  autostash = true
+[credential]
+  helper = osxkeychain
