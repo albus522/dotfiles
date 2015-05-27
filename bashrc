@@ -180,7 +180,7 @@ CDPATH=".:~:$PROJ_DIR"
 for FOLDER in $ORDERED_SUBFOLDERS; do
   CDPATH="$CDPATH:$PROJ_DIR/$FOLDER"
 done
-export CDPATH="$CDPATH:~/Desktop"
+export CDPATH="$CDPATH"
 
 export CLICOLOR="1"
 
@@ -188,22 +188,28 @@ export CHOST="x86_64-pc-linux-gnu"
 export CFLAGS="-march=nocona -O3 -pipe -fomit-frame-pointer"
 export CXXFLAGS="${CFLAGS}"
 
-export RUBY_HEAP_MIN_SLOTS=250000
-export RUBY_HEAP_SLOTS_INCREMENT=25000
-export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
-export RUBY_GC_MALLOC_LIMIT=50000000
+# export RUBY_HEAP_MIN_SLOTS=1000000
+# export RUBY_HEAP_SLOTS_INCREMENT=1000000
+# export RUBY_HEAP_SLOTS_GROWTH_FACTOR=1
+# export RUBY_GC_MALLOC_LIMIT=1000000000
+# export RUBY_HEAP_FREE_MIN=500000
 
 export BUNDLER_EDITOR=mate
 
 export EVENT_NOKQUEUE=yes
 
+# export C_INCLUDE_PATH=/opt/X11/include
 
-export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# export PATH=/usr/local/share/npm/bin:$PATH
 
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
 export PATH="./.bin:$PATH"
+
+export DIFF_TOOL=mate
+
+export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 
 if [ -e "${HOME}/.aliases" ] ; then
@@ -213,5 +219,15 @@ fi
 if [ -e "${HOME}/.dotfiles/heroku_completion" ] ; then
   source "${HOME}/.dotfiles/heroku_completion"
 fi
+
+
+### Added by the Heroku Toolbelt
+export PATH="/usr/local/heroku/bin:$PATH"
+
+# added by travis gem
+source /Users/dgenord/.travis/travis.sh
+
+# export LDFLAGS=-L/usr/local/opt/libxml2/lib
+# export CPPFLAGS=-I/usr/local/opt/libxml2/include
 
 export PATH="~/.dotfiles/bin:$PATH"
