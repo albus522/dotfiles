@@ -90,45 +90,6 @@ export HISTIGNORE="&:ls:[bf]g:exit:gst:gl:gp:gitx"
 # function settitle() { echo -ne "\e]2;$@\a\e]1;$@\a"; }
 
 
-function tunnel {
-  if [ "api1_ipmi" == "$1" ]
-  then
-    ssh -L 8080:10.10.11.52:80 -N xspond@proxy1.xspond.com
-  elif [ "db1_areca" == "$1" ]
-  then
-    ssh -L 8080:10.10.11.101:80 -N xspond@proxy1.xspond.com
-  elif [ "db1_ipmi" == "$1" ]
-  then
-    ssh -L 8080:10.10.11.51:80 -N xspond@proxy1.xspond.com
-  elif [ "db1_mongo" == "$1" ]
-  then
-    ssh -L 8888:db1:27017 -N xspond@proxy1.xspond.com
-  elif [ "db1_mysql" == "$1" ]
-  then
-    ssh -L 3308:db1:3306 -N xspond@proxy1.xspond.com
-  elif [ "db2_mongo" == "$1" ]
-  then
-    ssh -L 8888:db2:27017 -N xspond@proxy1.xspond.com
-  elif [ "dtp_rdc" == "$1" ]
-  then
-    ssh -L 3389:dtp:3389 -N -C xspond@proxy1.xspond.com
-  elif [ "netgear_http" == "$1" ]
-  then
-    open "http://localhost:9090/"
-    ssh -L 9090:10.10.11.5:80 -N -C xspond@proxy1.xspond.com
-  elif [ "staging_postgres" == "$1" ]
-  then
-    ssh -L 5434:127.0.0.1:5432 -N xspond@10.10.10.23
-  elif [ "vm1_areca" == "$1" ]
-  then
-    ssh -L 8080:10.10.11.102:80 -N xspond@proxy1.xspond.com
-  elif [ "xmp_postgres" == "$1" ]
-  then
-    ssh -L 5433:127.0.0.1:5432 -N xspond@xmp1.xspond.com
-  fi
-}
-complete -W 'api1_ipmi db1_areca db1_ipmi db1_mongo db1_mysql db2_mongo dtp_rdc netgear_http staging_postgres vm1_areca xmp_postgres' $default tunnel
-
 PROJ_DIR="$HOME/webdev"
 
 function __rbenv_ruby_version() {
