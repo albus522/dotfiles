@@ -21,3 +21,5 @@
   autostash = true
 [credential]
   helper = osxkeychain
+[commit]
+	gpgsign = true
