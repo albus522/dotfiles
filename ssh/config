@@ -18,10 +18,13 @@ Host 172.19.*
 Host odroid*.local
   user odroid
 
+Host raspberry*.local
+	user pi
+
 Host kegbot-dev.local
 	user pi
 
-Host beer.local
+Host beer*.local
 	user pi
 
 Host bender.collectiveidea.com
