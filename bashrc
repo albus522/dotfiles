@@ -186,7 +186,9 @@ fi
 export PATH="/usr/local/heroku/bin:$PATH"
 
 # added by travis gem
-source /Users/dgenord/.travis/travis.sh
+if [ -e "/Users/dgenord/.travis/travis.sh" ] ; then
+	source /Users/dgenord/.travis/travis.sh
+fi
 
 # export LDFLAGS=-L/usr/local/opt/libxml2/lib
 # export CPPFLAGS=-I/usr/local/opt/libxml2/include
