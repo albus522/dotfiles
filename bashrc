@@ -195,4 +195,6 @@ fi
 
 export PATH="~/.dotfiles/bin:$PATH"
 
+export DISABLE_SPRING=true
+
 export HOMEBREW_NO_ANALYTICS=1
