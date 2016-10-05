@@ -3,3 +3,4 @@ BUNDLE_PATH: vendor
 BUNDLE_BIN: ".bin"
 BUNDLE_JOBS: 4
 BUNDLE_DISABLE_SHARED_GEMS: '1'
+BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include"
