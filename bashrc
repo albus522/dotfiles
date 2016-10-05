@@ -194,3 +194,5 @@ fi
 # export CPPFLAGS=-I/usr/local/opt/libxml2/include
 
 export PATH="~/.dotfiles/bin:$PATH"
+
+export HOMEBREW_NO_ANALYTICS=1
