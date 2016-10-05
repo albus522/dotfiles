@@ -163,6 +163,8 @@ export EVENT_NOKQUEUE=yes
 
 # export PATH=/usr/local/share/npm/bin:$PATH
 
+export PATH="/usr/local/sbin:$PATH"
+
 export PATH="$HOME/.rbenv/bin:$PATH"
 eval "$(rbenv init -)"
 
