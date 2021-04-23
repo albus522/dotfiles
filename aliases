@@ -117,7 +117,7 @@ alias bec='bundle exec cucumber'
 alias fms='foreman start'
 
 alias b='bundle'
-alias bi="b install --path vendor --binstubs=.bin -j 4"
+alias bi="b install --path vendor --binstubs=.bin -j 8"
 alias bu="b update"
 alias be="b exec"
 alias bo="b open"
@@ -126,6 +126,7 @@ alias binit="bi && b package && echo 'vendor/ruby' >> .gitignore"
 # Aliases for git
 alias gl='git pull --rebase'
 alias gp='git push'
+alias gps='git push --force-with-lease'
 alias gb='git branch -a -v'
 alias gst='git status -sb'
 alias gss='ruby ~/.submodule_status.rb `pwd`'
@@ -141,6 +142,8 @@ alias gri='git rebase -i'
 alias gt='gittower .'
 alias gh='github'
 alias gpr='git push -u && github browse'
+
+alias showme='ERROR_SCREENSHOTS=true $(fc -ln -1)'
 
 function git-clean {
 	git checkout master && \
@@ -216,7 +219,7 @@ complete -o bashdefault -o default -o nospace -F _gi_git gi 2>/dev/null \
 # Aliases for ruby
 
 # use completion and require rubygems by default for irb
-alias irb='irb -r irb/completion -rubygems'
+alias irb='irb -r irb/completion'
 
 alias gemdir='gem env gemdir'
 
@@ -249,3 +252,6 @@ complete -F _gem_doc_list gemdoc
 function keynote_highlight_ruby {
 	pbpaste | highlight -O rtf --font-size 24 --font Menlo --style moe --src-lang ruby | pbcopy
 }
+
+alias docker-startup='docker-machine start osxdock && eval "$(docker-machine env osxdock)"'
+alias docker-shutdown='docker-machine stop osxdock'
