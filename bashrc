@@ -158,9 +158,9 @@ export CDPATH="$CDPATH"
 
 export CLICOLOR="1"
 
-export CHOST="x86_64-pc-linux-gnu"
-export CFLAGS="-march=nocona -O3 -pipe -fomit-frame-pointer"
-export CXXFLAGS="${CFLAGS}"
+# export CHOST="x86_64-pc-linux-gnu"
+# export CFLAGS="-march=nocona -O3 -pipe -fomit-frame-pointer"
+# export CXXFLAGS="${CFLAGS}"
 
 # export RUBY_HEAP_MIN_SLOTS=1000000
 # export RUBY_HEAP_SLOTS_INCREMENT=1000000
