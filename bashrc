@@ -80,6 +80,7 @@ if [ -n "$PS1" ]; then
   fi
 fi
 
+export BASH_SILENCE_DEPRECATION_WARNING=1
 
 # History Options
 # ###############
