@@ -36,6 +36,7 @@
 # for example, cd /vr/lgo/apaache would find /var/log/apache
 # shopt -s cdspell
 
+ulimit -n 10240
 
 # Completion options
 # ##################
