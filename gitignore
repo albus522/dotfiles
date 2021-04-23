@@ -10,10 +10,12 @@ CREDENTIALS
 *.tmproj
 *.swp
 *.sparsebundle
+xcuserdata
 /rerun.txt
 /.bin/
 /.bundle/config
 /db/*.sqlite*
+/db/backup
 /dragonfly
 /vendor/jruby
 /vendor/rbx
