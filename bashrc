@@ -185,7 +185,7 @@ export PATH="./.bin:$PATH"
 
 export DIFF_TOOL=mate
 
-export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
+# export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 
 
 if [ -e "${HOME}/.aliases" ] ; then
