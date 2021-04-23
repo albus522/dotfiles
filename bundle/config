@@ -1,7 +1,12 @@
 ---
-BUNDLE_PATH: vendor
+BUNDLE_PATH: "vendor"
 BUNDLE_BIN: ".bin"
-BUNDLE_JOBS: 4
-BUNDLE_DISABLE_SHARED_GEMS: '1'
-BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl/include"
-BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: http://localhost:9292
+BUNDLE_JOBS: "8"
+BUNDLE_DISABLE_SHARED_GEMS: "1"
+BUNDLE_BUILD__EVENTMACHINE: "--with-cppflags=-I/usr/local/opt/openssl@1.1/include"
+BUNDLE_MIRROR__HTTPS://RUBYGEMS__ORG/: "https://rubygems.org"
+BUNDLE_MIRROR__HTTP://RUBYGEMS__ORG/: "http://rubygems.org"
+BUNDLE_GIT__ALLOW_INSECURE: "true"
+BUNDLE_BUILD__LIBXML-RUBY: "--with-xml2-include=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk/usr/include/libxml2"
+BUNDLE_BUILD__LIBV8: "--with-system-v8"
+BUNDLE_BUILD__THERUBYRACER: "--with-v8-dir=/usr/local/opt/v8@3.15"
