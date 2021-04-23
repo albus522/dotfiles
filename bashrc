@@ -211,3 +211,6 @@ export DISABLE_PRY_RAILS=1
 export DISABLE_SIMPLE_COV=true
 
 export HOMEBREW_NO_ANALYTICS=1
+
+export NVM_DIR="/Users/dgenord/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
