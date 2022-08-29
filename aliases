@@ -166,9 +166,10 @@ function git-remove-remote-branch {
 
 _gl_git ()
 {
-	local i c=1 command="pull" __git_dir
+	local i c=1 command="pull" __git_dir __git_repo_path
 
 	local cur words cword prev
+  local __git_cmd_idx=0
 	_get_comp_words_by_ref -n =: cur words cword prev
 
 	_git_pull
@@ -176,9 +177,10 @@ _gl_git ()
 
 _gp_git ()
 {
-	local i c=1 command="push" __git_dir
+	local i c=1 command="push" __git_dir __git_repo_path
 
 	local cur words cword prev
+  local __git_cmd_idx=0
 	_get_comp_words_by_ref -n =: cur words cword prev
 
 	_git_push
@@ -186,9 +188,10 @@ _gp_git ()
 
 _gc_git ()
 {
-	local i c=1 command="checkout" __git_dir
+	local i c=1 command="checkout" __git_dir __git_repo_path
 
 	local cur words cword prev
+  local __git_cmd_idx=0
 	_get_comp_words_by_ref -n =: cur words cword prev
 
 	_git_checkout
@@ -196,9 +199,10 @@ _gc_git ()
 
 _gi_git ()
 {
-	local i c=1 command="commit" __git_dir
+	local i c=1 command="commit" __git_dir __git_repo_path
 
 	local cur words cword prev
+  local __git_cmd_idx=0
 	_get_comp_words_by_ref -n =: cur words cword prev
 
 	_git_commit
