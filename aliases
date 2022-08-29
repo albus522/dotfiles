@@ -117,7 +117,7 @@ alias bec='bundle exec cucumber'
 alias fms='foreman start'
 
 alias b='bundle'
-alias bi="b install --path vendor --binstubs=.bin -j 8"
+alias bi="b install -j 8 && b binstubs --all"
 alias bu="b update"
 alias be="b exec"
 alias bo="b open"
