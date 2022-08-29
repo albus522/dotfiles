@@ -10,9 +10,10 @@ else
   IRB.conf[:HISTORY_FILE] = "#{ENV['HOME']}/.irb_history"
 end
 IRB.conf[:PROMPT_MODE] = :SIMPLE
+IRB.conf[:USE_AUTOCOMPLETE] = false
+IRB.conf[:USE_MULTILINE] = false
 
-
-class Object
+Object.class_eval do
   # list methods which aren't in superclass
   def local_methods(obj = self)
     (obj.methods - obj.class.superclass.instance_methods).sort
@@ -50,13 +51,15 @@ def copy_history
   copy content
 end
 
-require 'big_decimal'
+begin
+  require 'big_decimal'
+rescue LoadError
+  require 'bigdecimal'
+end
 
 BigDecimal.class_eval do
-  alias_method :old_inspect, :inspect
-
   def inspect
-    old_inspect.sub(/'.*'/, "'#{to_s}'")
+    to_s("F")
   end
 end
 
