@@ -38,7 +38,7 @@ _heroku() {
 		help|version)
 			return 0
 			;;
-		--app|--remote)
+		-a|--app|--remote)
 			_heroku_complete "$(_heroku_remotes)"
 			return 0
 			;;
