@@ -17,6 +17,7 @@ xcuserdata
 /db/*.sqlite*
 /db/backup
 /dragonfly
+/ignore
 /vendor/jruby
 /vendor/rbx
 /vendor/ruby
