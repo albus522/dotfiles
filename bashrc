@@ -192,10 +192,6 @@ if [ -e "${HOME}/.aliases" ] ; then
   source "${HOME}/.aliases"
 fi
 
-# if [ -e "${HOME}/.dotfiles/heroku_completion" ] ; then
-#   source "${HOME}/.dotfiles/heroku_completion"
-# fi
-
 # added by travis gem
 if [ -e "/Users/dgenord/.travis/travis.sh" ] ; then
 	source /Users/dgenord/.travis/travis.sh
