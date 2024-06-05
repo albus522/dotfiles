@@ -1,6 +1,9 @@
 # IRB.conf[:AUTO_INDENT] = true
 require 'irb/completion'
-require 'irb/ext/save-history'
+begin
+  require 'irb/ext/save-history'
+rescue LoadError
+end
 require 'pp'
 
 IRB.conf[:SAVE_HISTORY] = 1000
