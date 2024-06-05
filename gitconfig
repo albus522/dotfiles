@@ -1,6 +1,6 @@
 [user]
-  name = David Genord II
-  email = david@collectiveidea.com
+	name = David Genord II
+	email = david@collectiveidea.com
 [core]
   excludesfile = ~/.gitignore
 [branch]
@@ -25,3 +25,7 @@
 	user = albus522
 [commit]
 	gpgsign = true
+[init]
+	defaultBranch = main
+[blame]
+	ignoreRevsFile = .git-blame-ignore-revs
