@@ -146,7 +146,7 @@ alias gpr='git push -u && github browse'
 alias showme='ERROR_SCREENSHOTS=true $(fc -ln -1)'
 
 function git-clean {
-	git checkout master && \
+	git checkout main && \
 	git branch --merged | grep -v "\*" | xargs -n 1 git branch -d && \
 	git remote prune origin
 }
