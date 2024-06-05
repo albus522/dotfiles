@@ -89,6 +89,8 @@ function ss {
 		./script/server $*
 	elif [ -f './config/apps.rb' ]; then
 		padrino start $*
+	elif [ -f './bin/dev' ]; then
+    ./bin/dev
 	elif [ -f './bin/rails' ]; then
 		rails server $*
 	else
