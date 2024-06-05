@@ -168,7 +168,7 @@ export CLICOLOR="1"
 # export RUBY_GC_MALLOC_LIMIT=1000000000
 # export RUBY_HEAP_FREE_MIN=500000
 
-export BUNDLER_EDITOR=mate
+export BUNDLER_EDITOR=code
 
 export EVENT_NOKQUEUE=yes
 
@@ -183,7 +183,7 @@ eval "$(rbenv init -)"
 
 export PATH="./.bin:$PATH"
 
-export DIFF_TOOL=mate
+export DIFF_TOOL=code
 
 # export SSL_CERT_FILE=/usr/local/opt/curl-ca-bundle/share/ca-bundle.crt
 

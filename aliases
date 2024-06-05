@@ -45,7 +45,7 @@ function m {
 	if [ "$files" != "" ]; then
 		open $files
 	else
-		mate .
+		code .
 	fi
 }
 

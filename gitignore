@@ -5,6 +5,7 @@
 .rbenv-version
 .ruby-version
 .tm_properties
+.vscode
 CREDENTIALS
 *.pid
 *.tmproj
